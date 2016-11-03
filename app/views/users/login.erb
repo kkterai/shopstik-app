@@ -1,0 +1,13 @@
+<%if !logged_in?  %>
+
+<h3>Login</h3>
+<form action="/login" method="POST">
+  <input type="text" name="username" placeholder="Username:">
+  <input type="password" name="password" placeholder="Password:">
+  <input type="submit" value="submit">
+</form>
+
+<%else%>
+    <p> You are already logged in </p>
+    <a href="/logout">Log Out</a>
+<%end%>
