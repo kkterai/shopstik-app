@@ -1,7 +1,7 @@
-require 'rack-flash'
+#require 'rack-flash'
 
 class UsersController < ApplicationController
-  use Rack::Flash
+  #use Rack::Flash
 
   get '/login' do
     if logged_in?
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     user = User.new(username: params[:username], email: params[:email], password: params[:password])
     if user.save
       session[:user_id] = user.id
-        redirect "/tweets"
+        redirect "/list"
     elsif !logged_in?
         redirect '/signup'
     end
@@ -44,4 +44,7 @@ class UsersController < ApplicationController
     redirect '/login'
   end
 
+  get '/list' do
+    erb :'users/list'
+  end
 end

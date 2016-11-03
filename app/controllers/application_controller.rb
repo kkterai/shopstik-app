@@ -11,7 +11,7 @@ class ApplicationController < Sinatra::Base
 
   before do
      pass if ["login", "signup", nil].include? request.path_info.split('/')[1]
-     if !logged_in
+     if !logged_in?
        redirect '/'
      end
   end

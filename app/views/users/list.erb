@@ -1,0 +1,13 @@
+<h1> My List </h1>
+
+<% Item.all.each do |item| %>
+<h3><a href='/item/<%=item.id%>'><%= item.item %></a></h3>
+
+<button><a href="/list/<%=item.id%>/edit"> Edit </a></button>
+
+<form action="/list/<%= item.id %>/delete" method="post">
+      <input id="hidden" type="hidden" name="_method" value="delete">
+      <input type="button" value="Delete" name="delete">
+    </form>
+
+<%end%>
