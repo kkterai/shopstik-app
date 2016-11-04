@@ -1,1 +1,17 @@
-#list.erb serves as show
+<h2> <%= @item.item%> </h2>
+
+
+    <br></br>
+
+    <form action="/items/<%= @item.id %>/delete" method="post">
+      <input id="hidden" type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete item" name="delete">
+    </form>
+
+      <br></br>
+
+    <a href="/items/<%=@item.id%>/edit"> Edit item </a>
+
+    <br>
+
+    <a href="/list"> Return to List </a>

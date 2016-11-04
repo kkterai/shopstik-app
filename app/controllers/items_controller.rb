@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
   end
 
   get '/items/:id' do
-    @item= Item.find(params[:id])
+    @item = Item.find(params[:id])
     erb :'items/show'
   end
 
@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
     end
   end
 
-  patch '/list' do
+  patch "/items/:id" do
     if params["item"] == ""
       @item = Item.find(params[:id])
       redirect "/items/#{@item.id}/edit"
@@ -38,7 +38,15 @@ class ItemsController < ApplicationController
       @item = Item.find(params[:id])
       @item.update(:item => params["item"])
       @item.save
-      redirect "/list"
+      redirect "/items/#{@item.id}"
+    end
+  end
+
+  delete '/items/:id/delete' do
+    @item = Item.find(params[:id])
+    if current_user.items.include?(@item)
+      @item.delete
+      redirect '/list'
     end
   end
 end

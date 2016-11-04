@@ -3,7 +3,7 @@
 <% Item.all.each do |item| %>
   <table style="width:30%">
     <tr>
-      <td><h3><%= item.item %></a></h3>
+      <td><a href="/items/<%=item.id%>"><h3><%= item.item %></a></h3>
       </td>
 
       <td><button><a href="/items/<%=item.id%>/edit"> Edit </a></button>
@@ -15,3 +15,6 @@
       </td>
   </table>
 <%end%>
+
+<a href="/items/new">New Item</a><br>
+<a href="/logout">Log Out</a>

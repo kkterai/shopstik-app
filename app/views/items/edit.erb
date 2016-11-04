@@ -2,7 +2,7 @@
 
   <h2>  Edit <%= @item.item %> </h2>
 
-  <form action="/list" method="POST">
+  <form action="/items/<%=@item.id%>" method="POST">
     <input  id="hidden" type="hidden" name="_method" value="patch">
 
     <input id= "item" type="text" name="item" value="<%= @item.item%>"><br>
