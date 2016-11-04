@@ -1,13 +1,17 @@
 <h1> My List </h1>
 
 <% Item.all.each do |item| %>
-<h3><a href='/item/<%=item.id%>'><%= item.item %></a></h3>
+  <table style="width:30%">
+    <tr>
+      <td><h3><%= item.item %></a></h3>
+      </td>
 
-<button><a href="/list/<%=item.id%>/edit"> Edit </a></button>
+      <td><button><a href="/items/<%=item.id%>/edit"> Edit </a></button>
+      </td>
 
-<form action="/list/<%= item.id %>/delete" method="post">
-      <input id="hidden" type="hidden" name="_method" value="delete">
-      <input type="button" value="Delete" name="delete">
-    </form>
-
+      <td><form action="/items/<%= item.id %>/delete" method="post">
+        <input id="hidden" type="hidden" name="_method" value="delete">
+        <input type="button" value="Delete" name="delete"></td>
+      </td>
+  </table>
 <%end%>

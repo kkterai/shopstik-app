@@ -1,0 +1,19 @@
+<% if logged_in? %>
+
+  <h2>  Edit <%= @item.item %> </h2>
+
+  <form action="/list" method="POST">
+    <input  id="hidden" type="hidden" name="_method" value="patch">
+
+    <input id= "item" type="text" name="item" value="<%= @item.item%>"><br>
+
+    <br></br>
+
+    <input type="submit" name= "item" value="submit">
+  </form>
+
+  <% else %>
+
+    <a href="/login"> Login </a>
+
+  <% end %>

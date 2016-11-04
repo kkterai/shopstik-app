@@ -16,4 +16,29 @@ class ItemsController < ApplicationController
     end
   end
 
+  get '/items/:id' do
+    @item= Item.find(params[:id])
+    erb :'items/show'
+  end
+
+  get '/items/:id/edit' do
+    @item= Item.find(params[:id])
+    if current_user.items.include?(@item)
+      erb :'/items/edit'
+    else
+      redirect "/list"
+    end
+  end
+
+  patch '/list' do
+    if params["item"] == ""
+      @item = Item.find(params[:id])
+      redirect "/items/#{@item.id}/edit"
+    else
+      @item = Item.find(params[:id])
+      @item.update(:item => params["item"])
+      @item.save
+      redirect "/list"
+    end
+  end
 end
