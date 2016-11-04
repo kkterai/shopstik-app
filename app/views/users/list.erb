@@ -11,10 +11,10 @@
 
       <td><form action="/items/<%= item.id %>/delete" method="post">
         <input id="hidden" type="hidden" name="_method" value="delete">
-        <input type="button" value="Delete" name="delete"></td>
+        <input type="submit" value="Delete" name="delete"></td>
       </td>
   </table>
 <%end%>
 
-<a href="/items/new">New Item</a><br>
+<a href="/new">New Item</a><br>
 <a href="/logout">Log Out</a>

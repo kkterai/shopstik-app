@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
 
   get '/items/:id' do
     @item = Item.find(params[:id])
-    erb :'items/show'
+    redirect '/list'
   end
 
   get '/items/:id/edit' do

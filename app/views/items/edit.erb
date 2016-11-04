@@ -3,13 +3,13 @@
   <h2>  Edit <%= @item.item %> </h2>
 
   <form action="/items/<%=@item.id%>" method="POST">
-    <input  id="hidden" type="hidden" name="_method" value="patch">
+    <input id="hidden" type="hidden" name="_method" value="patch">
 
-    <input id= "item" type="text" name="item" value="<%= @item.item%>"><br>
+    <input type="text" name="item" value="<%= @item.item%>"><br>
 
     <br></br>
 
-    <input type="submit" name= "item" value="submit">
+    <input id= "item" type="submit" value="submit">
   </form>
 
   <% else %>
