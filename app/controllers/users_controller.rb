@@ -2,7 +2,6 @@ require 'rack-flash'
 
 class UsersController < ApplicationController
 
-  enable :sessions
   use Rack::Flash
 
   get '/login' do

@@ -15,9 +15,11 @@
                <%= flash[:message] %>
               <% end %></h1>
 
-              <br>
+                <br>
+
               <h1><b> My List </b></h1>
               <hr>
+
                 <div class="list-group-item">
                   <table class="table table-striped custab">
                     <thead>
@@ -26,7 +28,7 @@
                             <th class="text-center"><h3> Action </h3></th>
                         </tr>
                     </thead>
-                  <% current_user.items.each do |item| %>
+                    <% current_user.items.each do |item| %>
                       <tr>
                         <td>
                           <h3><a  href="/items/<%=item.id%>"><%= item.item %></a></h3>
