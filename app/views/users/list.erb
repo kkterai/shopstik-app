@@ -4,10 +4,6 @@
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-<h1><% if flash.has?(:message) %>
- <%= flash[:message] %>
-<% end %></h1>
-
 <br>
 
 <div class="container">
@@ -30,7 +26,7 @@
                             <th class="text-center"><h3> Action </h3></th>
                         </tr>
                     </thead>
-                  <% Item.all.each do |item| %>
+                  <% current_user.items.each do |item| %>
                       <tr>
                         <td>
                           <h3><a  href="/items/<%=item.id%>"><%= item.item %></a></h3>

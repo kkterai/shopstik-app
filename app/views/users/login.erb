@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 
-<div class="col-md-offset-5 col-md-3">
-  <h3><% if flash.has?(:message) %>
- <%= flash[:message] %>
-<% end %>
-  </h3>
-</div>
-
-
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 <div class="container">
     <div class="row">
         <div class="col-md-offset-5 col-md-3">
             <div class="form-login">
+
+              <h3><% if flash.has?(:message) %>
+             <%= flash[:message] %>
+            <% end %>
+              </h3>
+
+              <br>
+
               <h1><b> Login </b></h1>
               <hr>
                 <form action="/login" method="POST">
