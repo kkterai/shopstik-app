@@ -2,22 +2,7 @@
 
 <title>Edit </title>
 
-  <h2><b>  Edit <%= @item.item %> </b></h2>
-
-  <hr>
-
-  <form action="/items/<%=@item.id%>" method="POST">
-    <input id="hidden" type="hidden" name="_method" value="patch">
-
-    <h3><input type="text" name="item" value="<%= @item.item%>"></h3><br>
-
-    <br>
-
-    <h3><input id= "item" type="submit" value="submit"></h3>
-  </form>
-
-
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
   <div class="container">
       <div class="row">
@@ -25,15 +10,15 @@
               <div class="form-login">
                 <h1><b> Edit <%= @item.item %> </b></h1>
                 <hr>
-                  <form action="/login" method="POST">
-                    <input type="text" class="form-control input-sm chat-input" name="username" placeholder="Username:"/>
-                      </br>
-                    <input type="password" class="form-control input-sm chat-input" name="password" placeholder="Password:"/>
+                  <form action="/items/<%=@item.id%>" method="POST">
+                    <input id="hidden" type="hidden" name="_method" value="patch">
+
+                    <input type="text" class="form-control input-sm chat-input"name="item" value="<%= @item.item%>" />
                       </br>
 
                       <div class="wrapper">
                       <span class="group-btn">
-                        <input type="submit" value="Login" class="btn btn-primary btn-md"/>
+                        <input id= "item" type="submit" value="Submit Changes" class="btn btn-primary btn-md"/>
                       </span>
                     </div>
                   </form>
