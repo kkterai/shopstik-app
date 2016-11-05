@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <div class="col-md-offset-5 col-md-3">
   <h3><% if flash.has?(:message) %>
  <%= flash[:message] %>
@@ -12,7 +14,8 @@
     <div class="row">
         <div class="col-md-offset-5 col-md-3">
             <div class="form-login">
-              <h2><b> Sign Up </b></h2>
+              <h1><b> Sign Up </b></h1>
+              <hr>
                 <form action="/signup" method="POST">
                     <input type="text" class="form-control input-sm chat-input" name="username" placeholder="Username:" />
                     </br>

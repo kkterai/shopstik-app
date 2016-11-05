@@ -15,3 +15,29 @@
 
     <h3><input id= "item" type="submit" value="submit"></h3>
   </form>
+
+
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <div class="container">
+      <div class="row">
+          <div class="col-md-offset-5 col-md-3">
+              <div class="form-login">
+                <h1><b> Edit <%= @item.item %> </b></h1>
+                <hr>
+                  <form action="/login" method="POST">
+                    <input type="text" class="form-control input-sm chat-input" name="username" placeholder="Username:"/>
+                      </br>
+                    <input type="password" class="form-control input-sm chat-input" name="password" placeholder="Password:"/>
+                      </br>
+
+                      <div class="wrapper">
+                      <span class="group-btn">
+                        <input type="submit" value="Login" class="btn btn-primary btn-md"/>
+                      </span>
+                    </div>
+                  </form>
+                </div>
+            </div>
+        </div>
+  </div>
