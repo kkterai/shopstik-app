@@ -1,7 +1,9 @@
-#require 'rack-flash'
+require 'rack-flash'
 
 class UsersController < ApplicationController
-  #use Rack::Flash
+
+  enable :sessions
+  use Rack::Flash
 
   get '/login' do
     if logged_in?
@@ -15,8 +17,14 @@ class UsersController < ApplicationController
     user = User.find_by(username: params[:username])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
+
+      flash[:message] = "Welcome Back!"
+
       redirect "/list"
     else
+
+      flash[:message] = "The username and password is incorrect. Please try again."
+
       redirect "/login"
     end
   end
@@ -33,8 +41,14 @@ class UsersController < ApplicationController
     user = User.new(username: params[:username], email: params[:email], password: params[:password])
     if user.save
       session[:user_id] = user.id
+
+        flash[:message] = "Welcome to your Shopstik!"
+
         redirect "/list"
     elsif !logged_in?
+
+        flash[:message] = "Your username, email, or password is missing. Please try again."
+
         redirect '/signup'
     end
   end

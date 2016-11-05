@@ -1,19 +1,17 @@
-<% if logged_in? %>
+<!DOCTYPE html>
+
+<title>Edit </title>
 
   <h2>  Edit <%= @item.item %> </h2>
+
+  <hr>
 
   <form action="/items/<%=@item.id%>" method="POST">
     <input id="hidden" type="hidden" name="_method" value="patch">
 
-    <input type="text" name="item" value="<%= @item.item%>"><br>
+    <h3><input type="text" name="item" value="<%= @item.item%>"></h3><br>
 
-    <br></br>
+    <br>
 
-    <input id= "item" type="submit" value="submit">
+    <h3><input id= "item" type="submit" value="submit"></h3>
   </form>
-
-  <% else %>
-
-    <a href="/login"> Login </a>
-
-  <% end %>

@@ -1,13 +1,15 @@
-<%if !logged_in?  %>
+<!DOCTYPE html>
 
-<h3>Login</h3>
+<h3><% if flash.has?(:message) %>
+ <%= flash[:message] %>
+<% end %></h3>
+
+<h2>Login</h2>
+
+<hr>
+
 <form action="/login" method="POST">
-  <input type="text" name="username" placeholder="Username:">
-  <input type="password" name="password" placeholder="Password:">
-  <input type="submit" value="submit">
+  <h3><input type="text" name="username" placeholder="Username:"></h3>
+  <h3><input type="password" name="password" placeholder="Password:"></h3>
+  <h3><input type="submit" value="submit"></h3>
 </form>
-
-<%else%>
-    <p> You are already logged in </p>
-    <a href="/logout">Log Out</a>
-<%end%>
