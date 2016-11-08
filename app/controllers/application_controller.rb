@@ -10,11 +10,11 @@ class ApplicationController < Sinatra::Base
   end
 
   before do
-     pass if ["login", "signup", nil].include? request.path_info.split('/')[1]
-     if !logged_in?
-       redirect '/'
-     end
-  end
+       pass if ["login", "signup", nil].include? request.path_info.split('/')[1]
+       if !logged_in?
+         redirect '/'
+       end
+    end
 
   get '/' do
     erb :index
@@ -22,11 +22,11 @@ class ApplicationController < Sinatra::Base
 
   helpers do
 		def logged_in?
-			!!session[:user_id]
+			!!current_user
 		end
 
 		def current_user
-			User.find(session[:user_id])
+			@current_user ||= User.find(session[:user_id]) if session[:user_id]
 		end
 	end
 

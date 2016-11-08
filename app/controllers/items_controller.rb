@@ -5,19 +5,16 @@ class ItemsController < ApplicationController
   end
 
   post '/items' do
-    @item = Item.new(:item => params["item"])
-    @user = User.find(session[:user_id])
-    if params["item"] != ""
-      @user.items << Item.create(:item => params["item"])
-      @user.save
-      redirect '/list'
-    else
-      redirect '/new'
-    end
+      if params["item"] != ""
+        @item = current_user.items.create(item: params[:item])
+        redirect '/list'
+      else
+        redirect '/new'
+      end
   end
 
   get '/items/:id' do
-    @item = Item.find(params[:id])
+    @item = current_user.items.find(params[:id])
     redirect '/list'
   end
 
@@ -31,14 +28,12 @@ class ItemsController < ApplicationController
   end
 
   patch "/items/:id" do
-    if params["item"] == ""
-      @item = Item.find(params[:id])
-      redirect "/items/#{@item.id}/edit"
-    else
-      @item = Item.find(params[:id])
-      @item.update(:item => params["item"])
-      @item.save
+    @item = current_user.items.find(params[:id])
+    if params[:item] != ""
+      @item.update(item: params[:item])
       redirect "/items/#{@item.id}"
+    else
+      redirect "/items/#{@item.id}/edit"
     end
   end
 
@@ -46,6 +41,8 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     if current_user.items.include?(@item)
       @item.delete
+      redirect '/list'
+    else
       redirect '/list'
     end
   end
