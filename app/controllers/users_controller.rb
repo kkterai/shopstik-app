@@ -60,6 +60,7 @@ class UsersController < ApplicationController
   end
 
   get '/list' do
+    @items = current_user.items
     erb :'users/list'
   end
 end

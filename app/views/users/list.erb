@@ -28,7 +28,7 @@
                             <th class="text-center"><h3> Action </h3></th>
                         </tr>
                     </thead>
-                    <% current_user.items.each do |item| %>
+                    <% @items.each do |item| %>
                       <tr>
                         <td>
                           <h3><a  href="/items/<%=item.id%>"><%= item.item %></a></h3>
