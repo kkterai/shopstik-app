@@ -17,7 +17,7 @@ Then navigate to localhost:9393 in your browser to see it in action.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/radditude/jobby. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/kkterai/shopstik-app. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
 ## License
 
