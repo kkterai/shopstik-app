@@ -1,28 +1,15 @@
 <!DOCTYPE html>
 
-<title>Edit </title>
+<h1><b> Edit <%= @item.item %> </b></h1>
+<hr>
+<form action="/items/<%=@item.id%>" method="POST">
+<input id="hidden" type="hidden" name="_method" value="patch">
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<input type="text" class="form-control input-sm chat-input"name="item" value="<%= @item.item%>" />
+</br>
 
-  <div class="container">
-      <div class="row">
-          <div class="col-md-offset-5 col-md-3">
-              <div class="form-login">
-                <h1><b> Edit <%= @item.item %> </b></h1>
-                <hr>
-                  <form action="/items/<%=@item.id%>" method="POST">
-                    <input id="hidden" type="hidden" name="_method" value="patch">
-
-                    <input type="text" class="form-control input-sm chat-input"name="item" value="<%= @item.item%>" />
-                      </br>
-
-                      <div class="wrapper">
-                      <span class="group-btn">
-                        <input id= "item" type="submit" value="Submit Changes" class="btn btn-primary btn-md"/>
-                      </span>
-                    </div>
-                  </form>
-                </div>
-            </div>
-        </div>
-  </div>
+<div class="wrapper">
+<span class="group-btn">
+<input id= "item" type="submit" value="Submit Changes" class="btn btn-primary btn-md"/>
+</span>
+</div>

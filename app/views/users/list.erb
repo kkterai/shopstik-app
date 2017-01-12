@@ -1,58 +1,47 @@
 <!DOCTYPE html>
 
-<title>User List </title>
-
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<h1><% if flash.has?(:message) %>
+<%= flash[:message] %>
+<% end %></h1>
 
 <br>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-offset-5 col-md-3">
-            <div class="form-login">
+<h1><b> My List </b></h1>
+<hr>
 
-              <h1><% if flash.has?(:message) %>
-               <%= flash[:message] %>
-              <% end %></h1>
+<div class="list-group-item">
+<table class="table table-striped custab">
+<thead>
+<tr>
+<th><h3> Item</h3></th>
+<th class="text-center"><h3> Action </h3></th>
+</tr>
+</thead>
+<% @items.each do |item| %>
+<tr>
+<td>
+<h3><a  href="/items/<%=item.id%>"><%= item.item %></a></h3>
+</td>
 
-                <br>
+<td class="text-center"><a class='btn btn-info btn-xs' href="/items/<%=item.id%>/edit"><span class="glyphicon glyphicon-edit"></span>  Edit </a>
 
-              <h1><b> My List </b></h1>
-              <hr>
+<form action="/items/<%= item.id %>/delete" method="post">
+<input id="hidden" type="hidden" name="_method" value="delete">
+<input type="submit" value="Delete" name="delete" class="btn btn-danger btn-xs">
+</form>
+</td>
+</tr>
+<%end%>
+</div>
+</table>
+</div>
+<br>
+<br>
 
-                <div class="list-group-item">
-                  <table class="table table-striped custab">
-                    <thead>
-                        <tr>
-                            <th><h3> Item</h3></th>
-                            <th class="text-center"><h3> Action </h3></th>
-                        </tr>
-                    </thead>
-                    <% @items.each do |item| %>
-                      <tr>
-                        <td>
-                          <h3><a  href="/items/<%=item.id%>"><%= item.item %></a></h3>
-                        </td>
+<a href="/new" class="btn btn-lg btn-primary btn-block btn-signin">New Item</a><br>
+<a href="/logout" class="btn btn-lg btn-primary btn-block btn-signin">Log Out</a>
 
-                        <td class="text-center"><a class='btn btn-info btn-xs' href="/items/<%=item.id%>/edit"><span class="glyphicon glyphicon-edit"></span>  Edit </a>
-
-                          <form action="/items/<%= item.id %>/delete" method="post">
-                            <input id="hidden" type="hidden" name="_method" value="delete">
-                            <input type="submit" value="Delete" name="delete" class="btn btn-danger btn-xs">
-                          </form>
-                        </td>
-                      </tr>
-                    <%end%>
-                      </div>
-                  </table>
-                </div>
-                <br>
-                <br>
-
-                <a href="/new" class="btn btn-lg btn-primary btn-block btn-signin">New Item</a><br>
-                <a href="/logout" class="btn btn-lg btn-primary btn-block btn-signin">Log Out</a>
-
-              </div>
-            </div>
-          </div>
-        </div>
+</div>
+</div>
+</div>
+</div>
